@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    -->
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>Talent Lashes</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+    -->
+
+    <link rel="stylesheet" href="lib/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/framework7.keypad.min.css">
+    <link rel="stylesheet" href="css/framework7.upscroller.css">
+    <link rel="stylesheet" href="css/framework7.3dpanels.min.css">
+    <link rel="stylesheet" href="lib/css/mdtimepicker.css">
+</head>
+
+<body>
+
+<!-- Left Panel with Reveal effect -->
+<div class="panel panel-left panel-reveal r8em-menu-panel theme-white">
+
+    <div class="profile-image-container" style="padding-bottom: 10px;">
+        <img id="more_user_image" src="img/logo.png" alt="user" class="profile-image"/>
+
+        <p align="center" id='username' style="margin: 0px;">TALENT G.</p>
+        <p href="#" style="color: #f60a07;">Lash Extension Therapist</p>
+    </div>
+
+    <div class="list-block" style="margin: 0px;">
+        <div class="list-group">
+            <ul>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-home"></i></div>
+                    <div class="item-inner">
+                        <a href="index.html" class="item-title" id="linkHome">Home</a>
+                    </div>
+                </li>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-calendar-plus-o"></i></div>
+                    <a class="item-inner" href="pages/appointments.html">
+                        <div class="item-title" id="contact">Appointments</div>
+                    </a>
+                </li>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-users"></i></div>
+                    <a class="item-inner" href="pages/clients.html">
+                        <div class="item-title" id="contact">Clients</div>
+                    </a>
+                </li>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-area-chart"></i></div>
+                    <a class="item-inner"
+                       href="javascript:void(0)"
+                       id="inviteOthers">
+                        <div class="item-title">Stats</div>
+                        <div class="comingsoon-flag">Coming</div>
+                    </a>
+                </li>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-calendar-times-o"></i></div>
+                    <a class="item-inner"
+                       href="pages/done.html">
+                        <div class="item-title">Appointments</div>
+                        <div class="comingsoon-flag">Done</div>
+                    </a>
+                </li>
+
+                <hr/>
+                <li class="item-content list-panel-all close-panel item-link">
+                    <div class="item-media"><i class="fa fa-code"></i></div>
+                    <a class="item-inner" href="pages/developer.html">
+                        <div class="item-title" id="contact">Developer</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+
+        <!-- Top Navbar. In Material theme it should be inside of the page-->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">TALENT LASHES</div>
+                <div class="right">
+                    <!-- Right link contains only icon - additional "icon-only" class--><a href="#"
+                                                                                           class="link icon-only open-panel">
+                    <i class="icon icon-bars"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through toolbar-through">
+            <!-- Page, "data-page" contains page name -->
+            <div data-page="index" class="page" id="indexPage">
+
+
+                <div class="page" data-page="search">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="row no-gutter">
+                            <div class="col-100 tablet-100">
+                                <img class="full-width-image" src="img/talent/talent1.jpg" id="talent_image">
+                            </div>
+                        </div>
+
+                        <div class="" id="front-menu">
+                            <div class="block">
+                                <div class="row no-gutter">
+                                    <a class="col-50"
+                                       href="pages/appointments.html">
+                                        <i class="fa fa-calendar-plus-o"></i>
+                                        <br/>
+                                        <h4>APPOINTMENTS</h4>
+                                        <h5>
+                                            talent lashes
+                                        </h5>
+                                    </a>
+                                    <a href="pages/clients.html" class="col-50">
+                                        <i class="fa fa-users"></i>
+                                        <br/>
+                                        <h4>CLIENTS</h4>
+                                        <h5>
+                                            talent lashes
+                                        </h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-finish">
+    <div class="content-block">
+        <div data-page="login" class="page no-navbar no-toolbar no-swipeback">
+            <div class="page-content login-screen-content login_background">
+                <div class="blur-landing"></div>
+
+                <div class="login-screen-title">Finish Appointment</div>
+
+                <form>
+                    <div class="list-block login_block block-spacing">
+                        <ul ud="blue_icons">
+                            <li class="item-content">
+                                <div class="item-inner item-colors">
+                                    <div class="smaller-label item-title label"><i class="fa fa-money"
+                                                                                   style="font-size: 20px;"></i></div>
+                                    <div class="item-input">
+                                        <input type="text" name="Appointment mount" id="appointment_amount"
+                                               placeholder="Appointment mount">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner item-colors">
+                                    <div class="smaller-label item-title label"><i class="fa fa-bank"
+                                                                                   style="font-size: 20px;"></i></div>
+                                    <div class="item-input">
+                                        <input type="text" name="Payment method" id="payment_method"
+                                               placeholder="Payment method">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content align-top">
+                                <div class="item-inner item-colors">
+                                    <div class="smaller-label item-title label"><i class="fa fa-comments-o"
+                                                                                   style="font-size: 20px;"></i></div>
+                                    <div class="item-input">
+                                        <textarea
+                                                placeholder="Please provide anny additional notes"
+                                                id="notes"></textarea>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-block">
+                        <ul>
+                            <li><a href="#" id="btnFinish" class="button button-big button-fill color-green"
+                                   style="margin-top: 10px;">FINISH</a></li>
+                        </ul>
+                        <div class="list-block-label">
+                            <p style="color: #fff;">
+                                <a href="javascript:void(0)" id="closeFinish">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<script type="text/javascript" src="lib/cordova/cordova.js"></script>-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/lodash.js"></script>
+<script type="text/javascript" src="lib/framework7.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jQuery-2.1.3.min.js"></script>
+<script type="text/javascript" src="lib/date.js"></script>
+<script type="text/javascript" src="lib/cookies/js.cookie.js"></script>
+<script type="text/javascript" src="lib/mdtimepicker.js"></script>
+<script type="text/javascript" src="lib/framework7.keypad.min.js"></script>
+<script type="text/javascript" src="lib/framework7.upscroller.js"></script>
+<script type="text/javascript" src="lib/framework7.3dpanels.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/dbh.js"></script>
+<script data-main="app" src="lib/require.js"></script>
+</body>
+</html>

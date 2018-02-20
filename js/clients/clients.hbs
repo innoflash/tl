@@ -1,0 +1,32 @@
+{{#if this}}
+    <div class="list-block media-list searchbar-found" id="dates_list"
+         style="margin-top: 0px; position: relative; z-index: 2;">
+        <ul>
+            {{#each this}}
+                <li data-id="{{_id}}" class="result-item">
+                    <a href="pages/client.html?id={{_id}}" class="item-link">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img src="img/user.png" width="40">
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">
+                                        <b>
+                                            {{name}}
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="item-subtitle"
+                                     style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ number }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+{{else}}
+    <h4>No results</h4>
+{{/if}}
