@@ -450,5 +450,73 @@ var databaseHandler = {
 
             }
         );
+    },
+    deleteClient: function (app, client_id) {
+        this.db.transaction(
+            function (transaction) {
+                transaction.executeSql(
+                    "DELETE FROM clients WHERE _id = ?",
+                    [
+                        client_id
+                    ],
+                    function (transaction, resultSet) {
+                        app.f7.addNotification({
+                            title: 'Client status',
+                            message: 'Client has been deleted from the clients database'
+                        });
+                        app.mainView.router.back({
+                            url: 'pages/clients.html',
+                            force: true,
+                            ignoreCache: true
+                        });
+                        console.log('has been deleted from the clients database');
+                    },
+                    function (transaction, error) {
+                        console.log(error.message);
+                    }
+                );
+            },
+            function (error) {
+                console.log(error.message);
+            },
+            function () {
+                console.log('delete transaction open');
+            }
+        );
+    },
+    updateClient: function (app, id, name, number) {
+        this.db.transaction(
+            function (transaction) {
+                transaction.executeSql(
+                    "UPDATE clients SET name = ?, number = ? WHERE _id = ?",
+                    [
+                        name,
+                        number,
+                        id
+                    ],
+                    function (transaction, resultSet) {
+                        console.log('client edited');
+                        app.f7.addNotification({
+                            title: 'Client status',
+                            message: 'Client has been updated successfully'
+                        });
+                        app.mainView.router.back({
+                            url: 'pages/clients.html',
+                            force: true,
+                            ignoreCache: true
+                        });
+                    },
+                    function (transaction, error) {
+                        console.log(error.message);
+                    }
+                );
+            },
+            function (error) {
+                console.log(error.message);
+            },
+            function () {
+
+            }
+        );
     }
 };

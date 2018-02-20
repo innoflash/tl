@@ -1,6 +1,7 @@
 define(["app", "js/addappointments/addappointmentsView"], function (app, View) {
     var $ = jQuery;
     var $$ = Dom7;
+    var name = '';
 
     var bindings = [
         {
@@ -10,18 +11,29 @@ define(["app", "js/addappointments/addappointmentsView"], function (app, View) {
         }
     ];
 
-    function init() {
+    function init(query) {
         databaseHandler.getClientsAppointment();
         app.f7.closePanel(true);
+        makePage(query);
+        View.render({
+            bindings: bindings
+        });
+    }
+
+    function makePage(query) {
+        if (query.name) {
+            console.log('has name');
+            name = query.name;
+
+            $('#user_name').val(name);
+            $('#user_name').prop('disabled', true);
+        }
         View.fillImage();
         preparePage();
         app.f7.keypad({
             input: '#client_number',
             valueMaxLength: 12,
             dotButton: false
-        });
-        View.render({
-            bindings: bindings
         });
     }
 

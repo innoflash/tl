@@ -2,6 +2,7 @@ define(["app", "js/client/clientView"], function (app, View) {
     var $ = jQuery;
     var $$ = Dom7;
     var _id = 0;
+    var name = '';
 
     var bindings = [
         {
@@ -27,6 +28,7 @@ define(["app", "js/client/clientView"], function (app, View) {
 
     function fillClient(data) {
         console.log(data);
+        name = data.name;
         View.fillBasic(data);
 
         databaseHandler.getClientAppointments(_id, fillAppointments);
@@ -50,13 +52,20 @@ define(["app", "js/client/clientView"], function (app, View) {
             {
                 text: 'Delete Client',
                 onClick: function () {
-
+                    databaseHandler.deleteClient(app, _id);
                 }
             },
             {
                 text: 'Edit Client',
                 onClick: function () {
-
+                    app.mainView.router.loadPage("pages/editclient.html?id=" + _id);
+                }
+            },
+            {
+                text: 'Add Appointment',
+                onClick: function () {
+                    console.log(name);
+                    app.mainView.router.loadPage("pages/addappointments.html?name=" + name);
                 }
             },
             {
