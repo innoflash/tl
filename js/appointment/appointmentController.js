@@ -122,9 +122,13 @@ define(["app", "js/appointment/appointmentView"], function (app, View) {
     function fillAppointment(data) {
         View.fillAppointment(data);
         console.log(data);
-        if (data._completed == true) {
+        if (data._completed == "true") {
+            console.log('completed');
             databaseHandler.getPayment(_id, fillPayment);
             $('.r8em-tabbar').hide();
+        }else{
+            console.log('not completed');
+            $('.r8em-tabbar').show();
         }
     }
 

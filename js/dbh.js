@@ -27,7 +27,7 @@ var databaseHandler = {
                     }
                 );
                 transaction.executeSql(
-                    "CREATE TABLE IF NOT EXISTS payments (_id INTEGER PRIMARY KEY , appointment_id INTEGER UNIQUE, _amount INTEGER, _type VARCHAR(5), _notes TEXT,  FOREIGN KEY (appointment_id) REFERENCES appointments(id) ON DELETE CASCADE)",
+                    "CREATE TABLE IF NOT EXISTS payments (_id INTEGER PRIMARY KEY , appointment_id INTEGER, _amount INTEGER, _type VARCHAR(5), _notes TEXT,  FOREIGN KEY (appointment_id) REFERENCES appointments(id) ON DELETE CASCADE)",
                     [],
                     function (transaction, resultSet) {
                         console.log('payments table created');
