@@ -217,7 +217,7 @@ var databaseHandler = {
         this.db.readTransaction(
             function (transaction) {
                 transaction.executeSql(
-                    "SELECT appointments._id, _date, _time, name FROM appointments LEFT JOIN clients ON appointments.client_id = clients._id WHERE _completed = ? AND _active = ? ORDER BY appointments._date ASC, appointments._time ASC",
+                    "SELECT appointments._id, _date, _time, name FROM appointments LEFT JOIN clients ON appointments.client_id = clients._id WHERE _completed = ? AND _active = ? ORDER BY appointments._date DESC, appointments._time ASC",
                     [
                         true,
                         true
@@ -339,7 +339,7 @@ var databaseHandler = {
         this.db.readTransaction(
             function (transaction) {
                 transaction.executeSql(
-                    "SELECT appointments._id, name, _date, _time, _completed FROM appointments INNER JOIN clients ON appointments.client_id = clients._id WHERE clients._id = ?",
+                    "SELECT appointments._id, name, _date, _time, _completed FROM appointments INNER JOIN clients ON appointments.client_id = clients._id WHERE clients._id = ? ORDER BY appointments._date DESC, appointments._time ASC",
                     [
                         id
                     ],

@@ -30,7 +30,7 @@ define(['handlebars'], function (Handlebars) {
         var tdy = Date.today();
         var day = Date.parse(date);
 
-        if (completed) {
+        if (completed == "true") {
             console.log('done');
             return 'done';
         } else {
