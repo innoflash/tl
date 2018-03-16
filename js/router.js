@@ -7,7 +7,10 @@ define(function() {
     function init() {
 		$(document).on('pageBeforeInit', function (e) {
 			var page = e.detail.page;
-			load(page.name, page.query);
+            console.log(e);
+            if (page.from != "left") {
+                load(page.name, page.query);
+            }
 		});
 
     }
