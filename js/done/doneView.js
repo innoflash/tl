@@ -1,4 +1,4 @@
-define(['hbs!js/done/blank', 'hbs!js/done/appointments'], function (blankTemplate, appointmentsTemplate) {
+define(['hbs!js/done/blank', 'hbs!js/done/appointments', 'hbs!js/done/done'], function (blankTemplate, appointmentsTemplate, doneTemplate) {
     var $$ = Dom7;
     var $ = jQuery;
 
@@ -20,10 +20,15 @@ define(['hbs!js/done/blank', 'hbs!js/done/appointments'], function (blankTemplat
         $('#appointments').html(appointmentsTemplate(data));
     }
 
+    function appendAppointments(data) {
+        $('#theAppointments').append(doneTemplate(data));
+    }
+
     return {
         render: render,
         showBlank: showBlank,
-        fillAppointments: fillAppointments
+        fillAppointments: fillAppointments,
+        appendAppointments: appendAppointments
     };
 });
 

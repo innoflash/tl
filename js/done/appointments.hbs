@@ -1,7 +1,7 @@
 {{#if this}}
     <div class="list-block media-list searchbar-found" id="dates_list"
          style="margin-top: 0px; position: relative; z-index: 2;">
-        <ul>
+        <ul id="theAppointments">
             {{#each this}}
                 <li data-id="{{_id}}" class="result-item {{checkdate _date}}">
 
@@ -38,6 +38,16 @@
                 </li>
             {{/each}}
         </ul>
+        <div class="row">
+            <!-- Each "cell" has col-[widht in percents] class -->
+            <div class="col-33"></div>
+            <div class="col-33">
+                <p class="buttons-row">
+                    <a href="javascript:void()" id="loadMoreApps" class="button">load more</a>
+                </p>
+            </div>
+            <div class="col-33"></div>
+        </div>
     </div>
 
 {{else}}

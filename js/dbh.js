@@ -213,18 +213,24 @@ var databaseHandler = {
             }
         );
     },
-    getDoneAppointments: function (fillAppointments) {
+    getDoneAppointments: function (fillAppointments, page) {
         this.db.readTransaction(
             function (transaction) {
+                var maxItems = 10;
+                var offSet = (page - 1) * maxItems;
                 transaction.executeSql(
-                    "SELECT appointments._id, _date, _time, name FROM appointments LEFT JOIN clients ON appointments.client_id = clients._id WHERE _completed = ? AND _active = ? ORDER BY appointments._date DESC, appointments._time ASC",
+                    "SELECT appointments._id, _date, _time, name FROM appointments LEFT JOIN clients ON appointments.client_id = clients._id WHERE _completed = ? AND _active = ? ORDER BY appointments._date DESC, appointments._time ASC LIMIT ?, ?",
                     [
                         true,
-                        true
+                        true,
+                        offSet,
+                        maxItems
                     ],
                     function (transaction, resultSet) {
                         console.log(resultSet.rows);
-                        fillAppointments(resultSet.rows);
+                        if (resultSet.rows.length != 0) {
+                            fillAppointments(resultSet.rows);
+                        }
                     },
                     function (transaction, error) {
                         console.log(error.message);
